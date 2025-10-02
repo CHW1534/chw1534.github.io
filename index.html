@@ -146,36 +146,37 @@
     // =================================================================
     // 1. DATA STORE (Base de Datos de Productos en Memoria)
     // =================================================================
-  const products = {
+const products = {
   home: [
-    { id: 'home-1', img: 'https://i.postimg.cc/wjfdR4Yh/PARCHE3.webp', title: 'PANTALON ESSENTIALS', description: 'Comodidad y estilo para tu día a día.', price: 499 },
-    { id: 'home-2', img: 'https://source.unsplash.com/400x400/?women,bag&sig=2', title: 'BOLSO TOTE EFECTO PIEL', description: 'El complemento perfecto para cualquier look.', price: 599 },
-    { id: 'home-3', img: 'https://source.unsplash.com/400x400/?tshirts,set&sig=3', title: 'Set Playeras Basic', description: 'Set de playeras de diferentes colores.', price: 1999 },
-    { id: 'home-4', img: 'https://source.unsplash.com/400x400/?watch,accessory&sig=4', title: 'Box Set Reloj Mass Market', description: 'Elegancia y funcionalidad en tu muñeca.', price: 999 },
+    { id: 'home-1', img: 'https://i.postimg.cc/7YkK1yXb/pantalon.jpg', title: 'PANTALON ESSENTIALS', description: 'Comodidad y estilo para tu día a día.', price: 499 },
+    { id: 'home-2', img: 'https://i.postimg.cc/T2y0C7GZ/bolso.jpg', title: 'BOLSO TOTE EFECTO PIEL', description: 'El complemento perfecto para cualquier look.', price: 599 },
+    { id: 'home-3', img: 'https://i.postimg.cc/yxMZ0WwQ/set-playeras.jpg', title: 'Set Playeras Basic', description: 'Set de playeras de diferentes colores.', price: 1999 },
+    { id: 'home-4', img: 'https://i.postimg.cc/9f5DfQbR/set-reloj.jpg', title: 'Box Set Reloj Mass Market', description: 'Elegancia y funcionalidad en tu muñeca.', price: 999 },
   ],
   hombres: [
-    { id: 'hom-1', img: 'https://source.unsplash.com/400x400/?men,suit&sig=5', title: 'Jersey "ARRE" de las Águilas', description: 'Diseñada para los amantes del deporte y del equipo.', price: 899 },
-    { id: 'hom-2', img: 'https://source.unsplash.com/400x400/?men,shirt&sig=6', title: 'Camisa Manga Larga', description: 'Elaborada 100% algodón para cualquier ocasión.', price: 199 },
-    { id: 'hom-3', img: 'https://source.unsplash.com/400x400/?men,perfume&sig=7', title: 'Perfume ZARA', description: 'Roba las miradas a donde vayas con un aroma cautivador.', price: 1000 },
-    { id: 'hom-4', img: 'https://source.unsplash.com/400x400/?men,tshirt&sig=8', title: 'Polo Dragon Ball', description: 'Para los amantes del anime con un diseño bordado.', price: 199 },
+    { id: 'hom-1', img: 'https://i.postimg.cc/Z5d5wPkG/jersey.jpg', title: 'Jersey "ARRE" de las Águilas', description: 'Diseñada para los amantes del deporte y del equipo.', price: 899 },
+    { id: 'hom-2', img: 'https://i.postimg.cc/NF1y7Hnr/camisa.jpg', title: 'Camisa Manga Larga', description: 'Elaborada 100% algodón para cualquier ocasión.', price: 199 },
+    { id: 'hom-3', img: 'https://i.postimg.cc/d0k1yV4D/perfume.jpg', title: 'Perfume ZARA', description: 'Roba las miradas a donde vayas con un aroma cautivador.', price: 1000 },
+    { id: 'hom-4', img: 'https://i.postimg.cc/28CjYzyd/polo-dragonball.jpg', title: 'Polo Dragon Ball', description: 'Para los amantes del anime con un diseño bordado.', price: 199 },
   ],
   mujeres: [
-    { id: 'muj-1', img: 'https://source.unsplash.com/400x400/?women,jacket&sig=9', title: 'Chaqueta Larga Cozy', description: 'Chaqueta abierta con manga larga. Acabados en rib.', price: 499 },
-    { id: 'muj-2', img: 'https://source.unsplash.com/400x400/?women,earrings&sig=10', title: 'PENDIENTES JOYAS', description: 'Pendientes metálicos colgantes con aplicación de joyas.', price: 599 },
-    { id: 'muj-3', img: 'https://source.unsplash.com/400x400/?women,bomber&sig=11', title: 'BOMBER EFECTO PIEL', description: 'Bomber de cuello redondo y manga larga. Cierre con cremallera.', price: 749 },
-    { id: 'muj-4', img: 'https://source.unsplash.com/400x400/?perfume,fragrance&sig=12', title: 'ENERGETICALLY NEW YORK', description: 'Eau de parfum. ¨Ignited imaginations will change the world¨.', price: 1000 },
+    { id: 'muj-1', img: 'https://i.postimg.cc/G2vQkZ8C/chaqueta-cozy.jpg', title: 'Chaqueta Larga Cozy', description: 'Chaqueta abierta con manga larga. Acabados en rib.', price: 499 },
+    { id: 'muj-2', img: 'https://i.postimg.cc/fb6rDk4H/pendientes.jpg', title: 'PENDIENTES JOYAS', description: 'Pendientes metálicos colgantes con aplicación de joyas.', price: 599 },
+    { id: 'muj-3', img: 'https://i.postimg.cc/QC3T2FJ7/bomber.jpg', title: 'BOMBER EFECTO PIEL', description: 'Bomber de cuello redondo y manga larga. Cierre con cremallera.', price: 749 },
+    { id: 'muj-4', img: 'https://i.postimg.cc/yN1jq6sS/fragan.jpg', title: 'ENERGETICALLY NEW YORK', description: 'Eau de parfum. ¨Ignited imaginations will change the world¨.', price: 1000 },
   ],
   accesorios: [
-    { id: 'acc-1', img: 'https://source.unsplash.com/400x400/?hat,cap&sig=13', title: 'Gorra Baseball Champion', description: 'Calidad icónica de Champion con un diseño clásico.', price: 499 },
-    { id: 'acc-2', img: 'https://source.unsplash.com/400x400/?patch,clothing&sig=14', title: 'Parche Attack on Titan', description: 'Parche de alta calidad para personalizar tu ropa.', price: 1000 },
-    { id: 'acc-3', img: 'https://source.unsplash.com/400x400/?pin,cartoon&sig=15', title: 'Pines Bob Esponja', description: 'Broche de dibujos animados divertidos, insignia de Metal.', price: 99 },
+    { id: 'acc-1', img: 'https://i.postimg.cc/wjfdR4Yh/PARCHE3.webp', title: 'Gorra Baseball Champion', description: 'Calidad icónica de Champion con un diseño clásico.', price: 499 },
+    { id: 'acc-2', img: 'https://i.postimg.cc/cL4hGmD0/parche2.webp', title: 'Parche Attack on Titan', description: 'Parche de alta calidad para personalizar tu ropa.', price: 1000 },
+    { id: 'acc-3', img: 'https://i.postimg.cc/3N6Y7gFh/pin1.jpg', title: 'Pines Bob Esponja', description: 'Broche de dibujos animados divertidos, insignia de Metal.', price: 99 },
   ],
   ofertas: [
-    { id: 'ofe-1', img: 'https://source.unsplash.com/400x400/?sale,clothes&sig=16', title: 'Pinguin Manga Larga', description: 'Manga larga extravagante con descuento.', price: 399 },
-    { id: 'ofe-2', img: 'https://source.unsplash.com/400x400/?discount,fashion&sig=17', title: 'Playera NIKE', description: 'Playera Nike basic en oferta especial.', price: 299 },
-    { id: 'ofe-3', img: 'https://source.unsplash.com/400x400/?outlet,clothes&sig=18', title: 'Chamarra RALPH LAUREN', description: 'Confeccionada con una microfibra resistente.', price: 499 },
+    { id: 'ofe-1', img: 'https://i.postimg.cc/vHc4t9Vf/pinguin.jpg', title: 'Pinguin Manga Larga', description: 'Manga larga extravagante con descuento.', price: 399 },
+    { id: 'ofe-2', img: 'https://i.postimg.cc/yNnR2WJ7/playera-nike.jpg', title: 'Playera NIKE', description: 'Playera Nike basic en oferta especial.', price: 299 },
+    { id: 'ofe-3', img: 'https://i.postimg.cc/3J4Rz8kB/chamarra.jpg', title: 'Chamarra RALPH LAUREN', description: 'Confeccionada con una microfibra resistente.', price: 499 },
   ]
 };
+
 
     // =================================================================
     // 2. STATE MANAGEMENT (Manejo del Estado del Carrito)
