@@ -1,359 +1,155 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Capirotada CR - Tienda Online</title>
-  <script>
-    // Informa a Tailwind que usaremos una clase para el modo oscuro
-    tailwind.config = {
-      darkMode: 'class'
-    }
-  </script>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .page {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    .page.active {
-      display: block;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .nav-link.active {
-      color: #3b82f6;
-      border-bottom: 2px solid #3b82f6;
-    }
-    #cart-sidebar {
-      transition: transform 0.3s ease-in-out;
-    }
-    #cart-sidebar.translate-x-full {
-      transform: translateX(100%);
-    }
-    #cart-overlay {
-        transition: opacity 0.3s ease-in-out;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Carlos Adolfo Guerrero Díaz</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: none;
+            font-size: 2.5em;
+            margin-bottom: 0;
+        }
+        .contact-info {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .proyecto a {
+            text-decoration: none;
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .proyecto a:hover {
+            background-color: #003d82;
+        }
+        @media (max-width: 600px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+<body>
+    <div class="container">
+        <header>
+            [cite_start]<h1>Carlos Adolfo Guerrero Díaz [cite: 1]</h1>
+            <div class="contact-info">
+                <p>Correo: Carlos.guerrero15xd@gmail.com | [cite_start]Teléfono: 6672398415 [cite: 2]</p>
+            </div>
+        </header>
 
-  <!-- Header and Navigation -->
-  <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-gray-900 dark:text-white">La Capirotada CR</h1>
-      <nav class="hidden md:flex space-x-6">
-        <a href="#home" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500 transition duration-300 pb-2" onclick="showPage('home')">home</a>
-        <a href="#hombres" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500 transition duration-300 pb-2" onclick="showPage('hombres')">Hombres</a>
-        <a href="#mujeres" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500 transition duration-300 pb-2" onclick="showPage('mujeres')">Mujeres</a>
-        <a href="#accesorios" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500 transition duration-300 pb-2" onclick="showPage('accesorios')">Accesorios</a>
-        <a href="#ofertas" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500 transition duration-300 pb-2" onclick="showPage('ofertas')">Ofertas</a>
-        <a href="#acerca" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500 transition duration-300 pb-2" onclick="showPage('acerca')">Acerca de</a>
-      </nav>
-      <div class="flex items-center space-x-4">
-        <a href="https://api.whatsapp.com/send?phone=TUNUMERO" target="_blank" class="text-2xl text-green-500 hover:text-green-600 hidden sm:block">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 focus:outline-none">
-            <i class="fas fa-sun text-2xl hidden" id="theme-toggle-sun"></i>
-            <i class="fas fa-moon text-2xl hidden" id="theme-toggle-moon"></i>
-        </button>
-        <button id="cart-button" class="relative text-gray-600 dark:text-gray-300 hover:text-blue-500">
-            <i class="fas fa-shopping-cart text-2xl"></i>
-            <span id="cart-item-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-        </button>
-        <button id="mobile-menu-button" class="md:hidden text-gray-600 dark:text-gray-300">
-            <i class="fas fa-bars text-2xl"></i>
-        </button>
-      </div>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-      <a href="#home" class="block py-2 text-center text-gray-600 dark:text-gray-300" onclick="showPage('home')">home</a>
-      <a href="#hombres" class="block py-2 text-center text-gray-600 dark:text-gray-300" onclick="showPage('hombres')">Hombres</a>
-      <a href="#mujeres" class="block py-2 text-center text-gray-600 dark:text-gray-300" onclick="showPage('mujeres')">Mujeres</a>
-      <a href="#accesorios" class="block py-2 text-center text-gray-600 dark:text-gray-300" onclick="showPage('accesorios')">Accesorios</a>
-      <a href="#ofertas" class="block py-2 text-center text-gray-600 dark:text-gray-300" onclick="showPage('ofertas')">Ofertas</a>
-      <a href="#acerca" class="block py-2 text-center text-gray-600 dark:text-gray-300" onclick="showPage('acerca')">Acerca de</a>
-    </div>
-  </header>
+        <main>
+            <section id="perfil" class="section">
+                [cite_start]<h2>Perfil Profesional [cite: 3]</h2>
+                <p>
+                    [cite_start]Estudiante de la Licenciatura en Informática con un marcado interés en las áreas de Soporte Técnico y Redes. [cite: 4] [cite_start]Me caracterizo por mi rápida adaptación a nuevos entornos, un gran entusiasmo por el aprendizaje continuo y una sólida habilidad para colaborar eficazmente en equipo. [cite: 5] [cite_start]Busco activamente una oportunidad laboral que me permita no solo aplicar los conocimientos que he adquirido, sino también ganar experiencia práctica valiosa y continuar mi desarrollo en competencias técnicas y profesionales. [cite: 6]
+                </p>
+            </section>
 
-  <!-- Main Content -->
-  <main class="container mx-auto p-4 md:p-8">
-    <section id="home-page" class="page">
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden mb-8">
-            <div class="relative h-64 md:h-96">
-                <img src="https://placehold.co/1200x400/334155/e2e8f0?text=Bienvenido+a+La+Capirotada+CR" alt="Banner principal de la tienda" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <div class="text-center">
-                        <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Estilo para Todos</h2>
-                        <p class="text-lg md:text-xl text-gray-200 mb-6">Descubre nuestras colecciones exclusivas.</p>
-                        <a href="#ofertas" onclick="showPage('ofertas')" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition duration-300">Ver Ofertas</a>
+            <section id="formacion" class="section">
+                [cite_start]<h2>Formación Académica [cite: 7]</h2>
+                <p>
+                    [cite_start]<strong>Licenciatura en Informática</strong> [cite: 8]<br>
+                    [cite_start]Universidad Autónoma de Sinaloa - Facultad de Informática, Culiacán [cite: 9]<br>
+                    [cite_start]<em>Agosto 2021 - Actualmente</em> [cite: 10]
+                </p>
+            </section>
+
+            <section id="habilidades" class="section">
+                [cite_start]<h2>Habilidades [cite: 11]</h2>
+                <div class="skills-grid">
+                    <div>
+                        [cite_start]<h3>Habilidades Técnicas [cite: 12]</h3>
+                        <ul>
+                            [cite_start]<li><strong>Soporte Técnico:</strong> Experiencia práctica en actividades de soporte técnico clonacion de equipos y gestión. [cite: 13]</li>
+                            [cite_start]<li><strong>Redes:</strong> Desarrollo de prácticas en el área de redes. [cite: 14]</li>
+                            [cite_start]<li><strong>Análisis de Datos:</strong> Fundamentos adquiridos a través del curso de Google. [cite: 15]</li>
+                        </ul>
+                    </div>
+                    <div>
+                        [cite_start]<h3>Habilidades Interpersonales [cite: 16]</h3>
+                        <ul>
+                            [cite_start]<li><strong>Trabajo en Equipo:</strong> Gran facilidad para colaborar y comunicarme eficazmente con compañeros. [cite: 17]</li>
+                            [cite_start]<li><strong>Comunicación:</strong> Habilidades comunicativas para expresar ideas de manera clara y concisa. [cite: 18]</li>
+                            [cite_start]<li><strong>Iniciativa y Proactividad:</strong> Disposición para proponer soluciones y tomar la iniciativa en proyectos. [cite: 19]</li>
+                            [cite_start]<li><strong>Aprendizaje Rápido:</strong> Capacidad para asimilar nuevos conocimientos y tecnologías de forma ágil. [cite: 20]</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-        <h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Productos Destacados</h2>
-        <div id="home-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
-    </section>
-    <section id="hombres-page" class="page"><h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Colección para Hombres</h2><div id="hombres-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div></section>
-    <section id="mujeres-page" class="page"><h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Colección para Mujeres</h2><div id="mujeres-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div></section>
-    <section id="accesorios-page" class="page"><h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Accesorios</h2><div id="accesorios-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div></section>
-    <section id="ofertas-page" class="page"><h2 class="text-3xl font-bold text-center mb-8 text-red-500 dark:text-red-400">¡Grandes Ofertas!</h2><div id="ofertas-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div></section>
-    <section id="acerca-page" class="page"><div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg"><h2 class="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">Acerca de Capirotada CR</h2><div class="space-y-4 text-gray-600 dark:text-gray-300 text-lg"><p>Somos una boutique muy variada que se enorgullece de ofrecer una amplia selección de productos elegantes y exclusivos...</p><h3 class="text-2xl font-semibold pt-4 text-gray-900 dark:text-white">Nuestra Misión</h3><p>En Capirotada CR, nuestra misión es proporcionar a nuestros clientes productos de alta calidad que destaquen su estilo individual...</p></div></div></section>
-  </main>
-  
-  <!-- Cart Sidebar -->
-  <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden"></div>
-  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white dark:bg-gray-800 shadow-2xl z-50 transform translate-x-full">
-      <div class="flex flex-col h-full">
-          <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
-              <h2 class="text-xl font-bold">Tu Carrito</h2>
-              <button id="close-cart-btn" class="text-gray-600 dark:text-gray-300 hover:text-red-500 text-2xl">&times;</button>
-          </div>
-          <div id="cart-items-container" class="flex-grow p-4 overflow-y-auto">
-              <!-- Cart items will be rendered here -->
-          </div>
-          <div class="p-4 border-t dark:border-gray-700">
-              <div class="flex justify-between items-center mb-4">
-                  <span class="text-lg font-semibold">Subtotal:</span>
-                  <span id="cart-total" class="text-lg font-bold text-blue-600 dark:text-blue-400">$0</span>
-              </div>
-              <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors duration-300">Proceder al Pago</button>
-          </div>
-      </div>
-  </div>
+            </section>
 
-  <!-- Footer -->
-  <footer class="bg-white dark:bg-gray-800 mt-12 shadow-inner">
-      <div class="container mx-auto px-6 py-8">
-          <!-- Footer content remains the same -->
-      </div>
-  </footer>
+            <section id="certificaciones" class="section">
+                [cite_start]<h2>Cursos y Certificaciones [cite: 21]</h2>
+                <ul>
+                    [cite_start]<li>Análisis de Datos - Google [cite: 22]</li>
+                </ul>
+            </section>
 
+            <section id="proyectos" class="section">
+                [cite_start]<h2>Experiencia en Proyectos [cite: 23]</h2>
+                <p>
+                    [cite_start]He tenido participación activa en diversos proyectos académicos en la Facultad de Informática, donde he desarrollado actividades prácticas en las áreas de soporte técnico y desarrollo web. [cite: 24, 25]
+                </p>
+                </section>
+            
+            <section id="idiomas" class="section">
+                [cite_start]<h2>Idiomas [cite: 26]</h2>
+                <ul>
+                    [cite_start]<li>Español: Nativo [cite: 27]</li>
+                    [cite_start]<li>Inglés: Básico (en proceso de aprendizaje) [cite: 28]</li>
+                </ul>
+            </section>
 
-  <script>
-    // =================================================================
-    // 1. DATA STORE (Base de Datos de Productos en Memoria)
-    // =================================================================
-const products = {
-  home: [
-    { id: 'home-1', img: 'https://i.postimg.cc/7YkK1yXb/pantalon.jpg', title: 'PARCHE DRAGON BALL', description: 'Parche lleno de escencia ', price: 499 },
-    { id: 'home-2', img: 'https://i.postimg.cc/T2y0C7GZ/bolso.jpg', title: 'BOLSO TOTE EFECTO PIEL', description: 'El complemento perfecto para cualquier look.', price: 599 },
-    { id: 'home-3', img: 'https://i.postimg.cc/yxMZ0WwQ/set-playeras.jpg', title: 'Set Playeras Basic', description: 'Set de playeras de diferentes colores.', price: 1999 },
-    { id: 'home-4', img: 'https://i.postimg.cc/9f5DfQbR/set-reloj.jpg', title: 'Box Set Reloj Mass Market', description: 'Elegancia y funcionalidad en tu muñeca.', price: 999 },
-  ],
-  hombres: [
-    { id: 'hom-1', img: 'https://i.postimg.cc/Z5d5wPkG/jersey.jpg', title: 'Jersey "ARRE" de las Águilas', description: 'Diseñada para los amantes del deporte y del equipo.', price: 899 },
-    { id: 'hom-2', img: 'https://i.postimg.cc/NF1y7Hnr/camisa.jpg', title: 'Camisa Manga Larga', description: 'Elaborada 100% algodón para cualquier ocasión.', price: 199 },
-    { id: 'hom-3', img: 'https://i.postimg.cc/d0k1yV4D/perfume.jpg', title: 'Perfume ZARA', description: 'Roba las miradas a donde vayas con un aroma cautivador.', price: 1000 },
-    { id: 'hom-4', img: 'https://i.postimg.cc/28CjYzyd/polo-dragonball.jpg', title: 'Polo Dragon Ball', description: 'Para los amantes del anime con un diseño bordado.', price: 199 },
-  ],
-  mujeres: [
-    { id: 'muj-1', img: 'https://i.postimg.cc/G2vQkZ8C/chaqueta-cozy.jpg', title: 'Chaqueta Larga Cozy', description: 'Chaqueta abierta con manga larga. Acabados en rib.', price: 499 },
-    { id: 'muj-2', img: 'https://i.postimg.cc/fb6rDk4H/pendientes.jpg', title: 'PENDIENTES JOYAS', description: 'Pendientes metálicos colgantes con aplicación de joyas.', price: 599 },
-    { id: 'muj-3', img: 'https://i.postimg.cc/QC3T2FJ7/bomber.jpg', title: 'BOMBER EFECTO PIEL', description: 'Bomber de cuello redondo y manga larga. Cierre con cremallera.', price: 749 },
-    { id: 'muj-4', img: 'https://i.postimg.cc/yN1jq6sS/fragan.jpg', title: 'ENERGETICALLY NEW YORK', description: 'Eau de parfum. ¨Ignited imaginations will change the world¨.', price: 1000 },
-  ],
-  accesorios: [
-    { id: 'acc-1', img: 'https://i.postimg.cc/wjfdR4Yh/PARCHE3.webp', title: 'Gorra Baseball Champion', description: 'Calidad icónica de Champion con un diseño clásico.', price: 499 },
-    { id: 'acc-2', img: 'https://i.postimg.cc/cL4hGmD0/parche2.webp', title: 'Parche Attack on Titan', description: 'Parche de alta calidad para personalizar tu ropa.', price: 1000 },
-    { id: 'acc-3', img: 'https://i.postimg.cc/3N6Y7gFh/pin1.jpg', title: 'Pines Bob Esponja', description: 'Broche de dibujos animados divertidos, insignia de Metal.', price: 99 },
-  ],
-  ofertas: [
-    { id: 'ofe-1', img: 'https://i.postimg.cc/vHc4t9Vf/pinguin.jpg', title: 'Pinguin Manga Larga', description: 'Manga larga extravagante con descuento.', price: 399 },
-    { id: 'ofe-2', img: 'https://i.postimg.cc/yNnR2WJ7/playera-nike.jpg', title: 'Playera NIKE', description: 'Playera Nike basic en oferta especial.', price: 299 },
-    { id: 'ofe-3', img: 'https://i.postimg.cc/3J4Rz8kB/chamarra.jpg', title: 'Chamarra RALPH LAUREN', description: 'Confeccionada con una microfibra resistente.', price: 499 },
-  ]
-};
-
-
-    // =================================================================
-    // 2. STATE MANAGEMENT (Manejo del Estado del Carrito)
-    // =================================================================
-    let cart = [];
-
-    // =================================================================
-    // 3. LÓGICA DEL TEMA (Modo Oscuro/Claro)
-    // =================================================================
-    function setupThemeToggle() {
-      const themeToggleBtn = document.getElementById('theme-toggle');
-      const themeToggleSunIcon = document.getElementById('theme-toggle-sun');
-      const themeToggleMoonIcon = document.getElementById('theme-toggle-moon');
-
-      function applyTheme(isDark) {
-          document.documentElement.classList.toggle('dark', isDark);
-          themeToggleSunIcon.classList.toggle('hidden', !isDark);
-          themeToggleMoonIcon.classList.toggle('hidden', isDark);
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      }
-      
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDarkMode = savedTheme ? savedTheme === 'dark' : prefersDark;
-      applyTheme(isDarkMode);
-
-      themeToggleBtn.addEventListener('click', () => {
-          const isCurrentlyDark = document.documentElement.classList.contains('dark');
-          applyTheme(!isCurrentlyDark);
-      });
-    }
-
-    // =================================================================
-    // 4. LÓGICA DEL CARRITO DE COMPRAS
-    // =================================================================
-    function setupCart() {
-      const cartButton = document.getElementById('cart-button');
-      const closeCartBtn = document.getElementById('close-cart-btn');
-      const cartSidebar = document.getElementById('cart-sidebar');
-      const cartOverlay = document.getElementById('cart-overlay');
-      const cartItemsContainer = document.getElementById('cart-items-container');
-      const cartTotalEl = document.getElementById('cart-total');
-      const cartItemCountEl = document.getElementById('cart-item-count');
-
-      function toggleCart() {
-          cartSidebar.classList.toggle('translate-x-full');
-          cartOverlay.classList.toggle('hidden');
-      }
-
-      window.addToCart = (productId, category) => {
-          const productToAdd = products[category].find(p => p.id === productId);
-          const existingItem = cart.find(item => item.id === productId);
-          if (existingItem) {
-              existingItem.quantity++;
-          } else {
-              cart.push({ ...productToAdd, quantity: 1 });
-          }
-          updateCart();
-      };
-
-      window.changeQuantity = (productId, amount) => {
-          const item = cart.find(i => i.id === productId);
-          if (item) {
-              item.quantity += amount;
-              if (item.quantity <= 0) {
-                  window.removeFromCart(productId);
-              } else {
-                  updateCart();
-              }
-          }
-      };
-
-      window.removeFromCart = (productId) => {
-          cart = cart.filter(item => item.id !== productId);
-          updateCart();
-      };
-      
-      function updateCart() {
-          renderCartItems();
-          updateCartTotal();
-          updateCartIcon();
-      }
-      
-      function renderCartItems() {
-          if (cart.length === 0) {
-              cartItemsContainer.innerHTML = '<p class="text-center text-gray-500 mt-8">Tu carrito está vacío.</p>';
-              return;
-          }
-          cartItemsContainer.innerHTML = cart.map(item => `
-              <div class="flex items-center justify-between p-2 border-b dark:border-gray-700">
-                  <img src="${item.img}" alt="${item.title}" class="w-16 h-16 object-cover rounded-md mr-4" onerror="this.onerror=null;this.src='https://placehold.co/64x64';">
-                  <div class="flex-grow">
-                      <p class="font-semibold text-sm">${item.title}</p>
-                      <p class="text-gray-500 text-xs">$${item.price}</p>
-                      <div class="flex items-center mt-1">
-                          <button class="px-2" onclick="changeQuantity('${item.id}', -1)">-</button>
-                          <span class="px-2">${item.quantity}</span>
-                          <button class="px-2" onclick="changeQuantity('${item.id}', 1)">+</button>
-                      </div>
-                  </div>
-                  <button onclick="removeFromCart('${item.id}')" class="text-red-500 hover:text-red-700 ml-4"><i class="fas fa-trash"></i></button>
-              </div>
-          `).join('');
-      }
-
-      function updateCartTotal() {
-          const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-          cartTotalEl.innerText = `$${total}`;
-      }
-
-      function updateCartIcon() {
-          const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-          cartItemCountEl.innerText = totalItems;
-      }
-      
-      cartButton.addEventListener('click', toggleCart);
-      closeCartBtn.addEventListener('click', toggleCart);
-      cartOverlay.addEventListener('click', toggleCart);
-      
-      updateCart(); // Initial render
-    }
-
-    // =================================================================
-    // 5. LÓGICA DE LA INTERFAZ (UI) - Renderizado y Navegación
-    // =================================================================
-    function setupUI() {
-      window.showPage = (pageId) => {
-          document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-          const activePage = document.getElementById(pageId + '-page');
-          if (activePage) activePage.classList.add('active');
-
-          document.querySelectorAll('.nav-link').forEach(link => {
-              link.classList.toggle('active', link.getAttribute('href') === '#' + pageId);
-          });
-          document.getElementById('mobile-menu').classList.add('hidden');
-      };
-
-      function renderProducts(category, containerId) {
-        const container = document.getElementById(containerId);
-        if (!container || !products[category]) return;
-        container.innerHTML = products[category].map(product => `
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-              <img src="${product.img}" alt="${product.title}" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x400';">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 truncate">${product.title}</h3>
-                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 h-10 overflow-hidden">${product.description}</p>
-                <div class="flex justify-between items-center">
-                  <span class="text-xl font-bold text-blue-600 dark:text-blue-400">$${product.price}</span>
-                  <button onclick="addToCart('${product.id}', '${category}')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm font-semibold">
-                    <i class="fas fa-cart-plus mr-2"></i>Añadir
-                  </button>
-                </div>
-              </div>
-            </div>
-        `).join('');
-      }
-
-      Object.keys(products).forEach(category => {
-          renderProducts(category, `${category}-products`);
-      });
-
-      document.getElementById('mobile-menu-button').addEventListener('click', () => {
-          document.getElementById('mobile-menu').classList.toggle('hidden');
-      });
-    }
-
-    // =================================================================
-    // 6. INICIALIZACIÓN DE LA APLICACIÓN
-    // =================================================================
-    document.addEventListener('DOMContentLoaded', () => {
-      setupThemeToggle();
-      setupCart();
-      setupUI();
-      showPage('home'); // Muestra la página de home por defecto
-    });
-  </script>
-
+            <section id="intereses" class="section">
+                [cite_start]<h2>Intereses [cite: 29]</h2>
+                <ul>
+                    [cite_start]<li>Tecnología y Soporte Informático [cite: 30]</li>
+                    [cite_start]<li>Redes y Telecomunicaciones [cite: 30]</li>
+                    [cite_start]<li>Análisis de Datos [cite: 30]</li>
+                    [cite_start]<li>Desarrollo web [cite: 30]</li>
+                </ul>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
-
