@@ -90,7 +90,7 @@
 
 <div class="container">
     <nav>
-        <h2>Menú</h2>
+        <h2>Acerca de mi </h2>
         <ul>
             <li class="active" onclick="showSection('perfil')">Perfil Profesional</li>
             <li onclick="showSection('formacion')">Formación Académica</li>
@@ -169,7 +169,7 @@ function showSection(sectionId) {
     // Mostrar la sección seleccionada
     document.getElementById(sectionId).classList.add('active');
     
-    // Actualizar el menú activo
+    // Actualizar el Acerca de mi  activo
     const items = document.querySelectorAll('nav ul li');
     items.forEach(i => i.classList.remove('active'));
     event.currentTarget.classList.add('active');
