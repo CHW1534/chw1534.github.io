@@ -1,83 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Carlos Adolfo Guerrero Díaz</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #00979e;
-            color: #333;
-        }
-        header {
-            background-color: #1a73e8;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
-        header p {
-            margin: 5px 0 0 0;
-            font-size: 16px;
-        }
-        .contact {
-            margin-top: 10px;
-            font-size: 14px;
-        }
-        main {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 20px auto;
-            gap: 20px;
-            padding: 0 20px;
-        }
-        .card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            padding: 20px;
-            flex: 1 1 350px;
-            min-width: 300px;
-        }
-        .card h2 {
-            color: #1a73e8;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #1a73e8;
-            padding-bottom: 5px;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        ul li {
-            margin-bottom: 5px;
-        }
-        .skills div {
-            margin-bottom: 8px;
-        }
-        .pdf-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #1a73e8;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-        .pdf-link:hover {
-            background-color: #155ab6;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Interactivo - Carlos Adolfo Guerrero Díaz</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f7f9;
+        color: #333;
+    }
+    header {
+        background-color: #1a73e8;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 32px;
+    }
+    header p {
+        margin: 5px 0 0 0;
+        font-size: 16px;
+    }
+    .contact {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .container {
+        display: flex;
+        min-height: 100vh;
+    }
+    nav {
+        width: 250px;
+        background-color: #ffffff;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        padding: 20px;
+    }
+    nav h2 {
+        color: #1a73e8;
+        margin-top: 0;
+    }
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+    nav ul li {
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 6px;
+        margin-bottom: 5px;
+    }
+    nav ul li:hover, nav ul li.active {
+        background-color: #1a73e8;
+        color: white;
+    }
+    main {
+        flex: 1;
+        padding: 30px;
+    }
+    section {
+        display: none;
+        animation: fadeIn 0.5s;
+    }
+    section.active {
+        display: block;
+    }
+    section h2 {
+        color: #1a73e8;
+        margin-top: 0;
+    }
+    @keyframes fadeIn {
+        from {opacity:0;}
+        to {opacity:1;}
+    }
+</style>
 </head>
 <body>
 
@@ -89,74 +88,93 @@
     </div>
 </header>
 
-<main>
-    <div class="card">
-        <h2>Perfil Profesional</h2>
-        <p>Estudiante de la Licenciatura en Informática con interés en Soporte Técnico y Redes. Me caracterizo por mi rápida adaptación a nuevos entornos, entusiasmo por el aprendizaje continuo y habilidad para colaborar eficazmente en equipo. Busco oportunidades para aplicar conocimientos adquiridos y ganar experiencia práctica mientras desarrollo competencias técnicas y profesionales.</p>
-    </div>
-
-    <div class="card">
-        <h2>Formación Académica</h2>
-        <p><strong>Licenciatura en Informática</strong><br>
-        Universidad Autónoma de Sinaloa – Facultad de Informática, Culiacán<br>
-        Agosto 2021 – Actualmente</p>
-    </div>
-
-    <div class="card">
-        <h2>Habilidades Técnicas</h2>
+<div class="container">
+    <nav>
+        <h2>Menú</h2>
         <ul>
-            <li>Soporte Técnico: Experiencia práctica en clonación de equipos y gestión.</li>
-            <li>Redes: Desarrollo de prácticas en el área de redes.</li>
-            <li>Análisis de Datos: Fundamentos adquiridos a través del curso de Google.</li>
-            <li>Desarrollo Web: HTML, CSS y fundamentos de JavaScript.</li>
+            <li class="active" onclick="showSection('perfil')">Perfil Profesional</li>
+            <li onclick="showSection('formacion')">Formación Académica</li>
+            <li onclick="showSection('habilidades')">Habilidades Técnicas</li>
+            <li onclick="showSection('interpersonales')">Habilidades Interpersonales</li>
+            <li onclick="showSection('cursos')">Cursos y Certificaciones</li>
+            <li onclick="showSection('proyectos')">Experiencia en Proyectos</li>
+            <li onclick="showSection('idiomas')">Idiomas</li>
+            <li onclick="showSection('intereses')">Intereses</li>
         </ul>
-    </div>
+    </nav>
+    <main>
+        <section id="perfil" class="active">
+            <h2>Perfil Profesional</h2>
+            <p>Estudiante de la Licenciatura en Informática con interés en Soporte Técnico y Redes. Me caracterizo por mi rápida adaptación a nuevos entornos, entusiasmo por el aprendizaje continuo y habilidad para colaborar eficazmente en equipo. Busco oportunidades para aplicar conocimientos adquiridos y ganar experiencia práctica mientras desarrollo competencias técnicas y profesionales.</p>
+        </section>
+        <section id="formacion">
+            <h2>Formación Académica</h2>
+            <p><strong>Licenciatura en Informática</strong><br>
+            Universidad Autónoma de Sinaloa – Facultad de Informática, Culiacán<br>
+            Agosto 2021 – Actualmente</p>
+        </section>
+        <section id="habilidades">
+            <h2>Habilidades Técnicas</h2>
+            <ul>
+                <li>Soporte Técnico: Experiencia práctica en clonación de equipos y gestión.</li>
+                <li>Redes: Desarrollo de prácticas en el área de redes.</li>
+                <li>Análisis de Datos: Fundamentos adquiridos a través del curso de Google.</li>
+                <li>Desarrollo Web: HTML, CSS y fundamentos de JavaScript.</li>
+            </ul>
+        </section>
+        <section id="interpersonales">
+            <h2>Habilidades Interpersonales</h2>
+            <ul>
+                <li>Trabajo en Equipo</li>
+                <li>Comunicación Efectiva</li>
+                <li>Iniciativa y Proactividad</li>
+                <li>Aprendizaje Rápido</li>
+            </ul>
+        </section>
+        <section id="cursos">
+            <h2>Cursos y Certificaciones</h2>
+            <ul>
+                <li>Análisis de Datos – Google</li>
+            </ul>
+        </section>
+        <section id="proyectos">
+            <h2>Experiencia en Proyectos</h2>
+            <p>Participación activa en diversos proyectos académicos en la Facultad de Informática, desarrollando actividades prácticas en soporte técnico y desarrollo web.</p>
+        </section>
+        <section id="idiomas">
+            <h2>Idiomas</h2>
+            <ul>
+                <li>Español: Nativo</li>
+                <li>Inglés: Básico (en proceso de aprendizaje)</li>
+            </ul>
+        </section>
+        <section id="intereses">
+            <h2>Intereses</h2>
+            <ul>
+                <li>Tecnología y Soporte Informático</li>
+                <li>Redes y Telecomunicaciones</li>
+                <li>Análisis de Datos</li>
+                <li>Desarrollo Web</li>
+            </ul>
+        </section>
+    </main>
+</div>
 
-    <div class="card">
-        <h2>Habilidades Interpersonales</h2>
-        <ul>
-            <li>Trabajo en Equipo</li>
-            <li>Comunicación Efectiva</li>
-            <li>Iniciativa y Proactividad</li>
-            <li>Aprendizaje Rápido</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Cursos y Certificaciones</h2>
-        <ul>
-            <li>Análisis de Datos – Google</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Experiencia en Proyectos</h2>
-        <p>Participación activa en diversos proyectos académicos en la Facultad de Informática, desarrollando actividades prácticas en soporte técnico y desarrollo web.</p>
-    </div>
-
-    <div class="card">
-        <h2>Idiomas</h2>
-        <ul>
-            <li>Español: Nativo</li>
-            <li>Inglés: Básico (en proceso de aprendizaje)</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Intereses</h2>
-        <ul>
-            <li>Tecnología y Soporte Informático</li>
-            <li>Redes y Telecomunicaciones</li>
-            <li>Análisis de Datos</li>
-            <li>Desarrollo Web</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <a class="pdf-link" href="CV-Carlos-Guerrero.pdf" target="_blank">📄 Descargar CV en PDF</a>
-    </div>
-
-</main>
+<script>
+function showSection(sectionId) {
+    // Ocultar todas las secciones
+    const sections = document.querySelectorAll('main section');
+    sections.forEach(s => s.classList.remove('active'));
+    
+    // Mostrar la sección seleccionada
+    document.getElementById(sectionId).classList.add('active');
+    
+    // Actualizar el menú activo
+    const items = document.querySelectorAll('nav ul li');
+    items.forEach(i => i.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+}
+</script>
 
 </body>
 </html>
