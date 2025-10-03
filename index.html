@@ -3,140 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Interactivo - Carlos Adolfo Guerrero Díaz</title>
-    <!-- Importar CSS externo -->
+    <title>CV Visual - Carlos Adolfo Guerrero Díaz</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        header {
+            background-color: #1a73e8;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 18px;
+        }
+        .contact {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+            flex: 1 1 350px;
+            min-width: 300px;
+        }
+        .card h2 {
+            color: #1a73e8;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #1a73e8;
+            padding-bottom: 5px;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 5px;
+        }
+        .skills div {
+            margin-bottom: 8px;
+        }
+        .pdf-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .pdf-link:hover {
+            background-color: #155ab6;
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <ul class="nav-menu">
-                <li><a href="#perfil" class="active">Perfil</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#formacion">Formación</a></li>
-                <li><a href="#certificaciones">Certificaciones</a></li>
-            </ul>
-        </div>
-    </nav>
+<header>
+    <h1>Carlos Adolfo Guerrero Díaz</h1>
+    <p>Estudiante de Licenciatura en Informática | Apasionado por Soporte Técnico y Redes</p>
+    <div class="contact">
+        📧 Carlos.guerrero15xd@gmail.com | 📞 667-239-8415
+    </div>
+</header>
 
-    <div class="container">
-        <header class="header-content">
-            <h1>Carlos Adolfo Guerrero Díaz</h1>
-            <p>Estudiante de Licenciatura en Informática | Apasionado por el Soporte Técnico y Redes</p>
-            <div class="contact-info">
-                <a href="mailto:Carlos.guerrero15xd@gmail.com">📧 Carlos.guerrero15xd@gmail.com</a>
-                <span>|</span>
-                <a href="tel:+526672398415">📞 667-239-8415</a>
-            </div>
-        </header>
-
-        <main>
-            <section id="perfil" class="section">
-                <details>
-                    <summary><h2>Perfil Profesional</h2></summary>
-                    <p>
-                        Estudiante de la Licenciatura en Informática con un marcado interés en las áreas de Soporte Técnico y Redes. 
-                        Me caracterizo por mi rápida adaptación a nuevos entornos, un gran entusiasmo por el aprendizaje continuo 
-                        y una sólida habilidad para colaborar eficazmente en equipo. 
-                        Busco activamente una oportunidad laboral que me permita aplicar mis conocimientos y ganar experiencia práctica valiosa.
-                    </p>
-                </details>
-            </section>
-
-            <section id="habilidades" class="section">
-                <details>
-                    <summary><h2>Habilidades</h2></summary>
-                    <h3>Técnicas</h3>
-                    <div class="skills-container">
-                        <span class="skill-badge">Soporte Técnico</span>
-                        <span class="skill-badge">Clonación de Equipos</span>
-                        <span class="skill-badge">Gestión de Tickets</span>
-                        <span class="skill-badge">Configuración de Redes</span>
-                        <span class="skill-badge">Análisis de Datos (Básico)</span>
-                        <span class="skill-badge">HTML y CSS</span>
-                        <span class="skill-badge">Desarrollo Web (Fundamentos)</span>
-                    </div>
-                    
-                    <h3>Interpersonales</h3>
-                    <div class="skills-container">
-                        <span class="skill-badge">Trabajo en Equipo</span>
-                        <span class="skill-badge">Comunicación Efectiva</span>
-                        <span class="skill-badge">Resolución de Problemas</span>
-                        <span class="skill-badge">Iniciativa</span>
-                        <span class="skill-badge">Aprendizaje Rápido</span>
-                        <span class="skill-badge">Adaptabilidad</span>
-                    </div>
-                </details>
-            </section>
-
-            <section id="proyectos" class="section">
-                <details>
-                    <summary><h2>Experiencia en Proyectos</h2></summary>
-                    <div class="proyectos-grid">
-                        <div class="proyecto-card">
-                            <h3>Proyecto de Redes para Laboratorio</h3>
-                            <p>Diseño y configuración de una red local para un laboratorio de cómputo, asegurando conectividad de 20 equipos con cableado estructurado y switches.</p>
-                        </div>
-                        <div class="proyecto-card">
-                            <h3>Desarrollo de Sitio Web Académico</h3>
-                            <p>Participación en el desarrollo de un portal web para un evento académico, usando HTML, CSS y JavaScript en la sección de ponentes y programa.</p>
-                        </div>
-                    </div>
-                </details>
-            </section>
-
-            <section id="formacion" class="section">
-                <details>
-                    <summary><h2>Formación Académica</h2></summary>
-                    <p>
-                        <strong>Licenciatura en Informática</strong><br>
-                        Universidad Autónoma de Sinaloa - Facultad de Informática, Culiacán<br>
-                        <em>Agosto 2021 - Actualmente</em>
-                    </p>
-                </details>
-            </section>
-
-            <section id="certificaciones" class="section">
-                <details>
-                    <summary><h2>Cursos y Certificaciones</h2></summary>
-                    <ul>
-                        <li>Análisis de Datos - Google</li>
-                    </ul>
-                </details>
-            </section>
-            
-            <section class="download-cv">
-                <a href="CV_Guerrero_Diaz.pdf" target="_blank">📄 Descargar CV en PDF</a>
-            </section>
-
-        </main>
+<main>
+    <div class="card">
+        <h2>Perfil Profesional</h2>
+        <p>Estudiante de la Licenciatura en Informática con interés en Soporte Técnico y Redes. Me adapto rápidamente a nuevos entornos, con entusiasmo por aprender y colaborar en equipo. Busco oportunidades para aplicar mis conocimientos y adquirir experiencia práctica.</p>
     </div>
 
-    <script>
-        // Para marcar la sección activa en la navbar
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.nav-menu a');
-            const sections = document.querySelectorAll('section');
+    <div class="card">
+        <h2>Habilidades</h2>
+        <div class="skills">
+            <div><strong>Técnicas:</strong> Soporte Técnico, Clonación de Equipos, Gestión de Tickets, Configuración de Redes, Análisis de Datos (Básico), HTML y CSS, Desarrollo Web (Fundamentos)</div>
+            <div><strong>Interpersonales:</strong> Trabajo en Equipo, Comunicación Efectiva, Resolución de Problemas, Iniciativa, Aprendizaje Rápido, Adaptabilidad</div>
+        </div>
+    </div>
 
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 120;
-                    if (scrollY >= sectionTop) {
-                        current = section.getAttribute('id');
-                    }
-                });
+    <div class="card">
+        <h2>Experiencia en Proyectos</h2>
+        <ul>
+            <li><strong>Proyecto de Redes para Laboratorio:</strong> Configuración de red local para 20 equipos con cableado estructurado y switches.</li>
+            <li><strong>Desarrollo de Sitio Web Académico:</strong> Participación en portal web para evento académico usando HTML, CSS y JS en secciones de ponentes y programa.</li>
+        </ul>
+    </div>
 
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-        });
-    </script>
+    <div class="card">
+        <h2>Formación Académica</h2>
+        <p><strong>Licenciatura en Informática</strong><br>
+        Universidad Autónoma de Sinaloa - Facultad de Informática, Culiacán<br>
+        Agosto 2021 - Actualmente</p>
+    </div>
+
+    <div class="card">
+        <h2>Cursos y Certificaciones</h2>
+        <ul>
+            <li>Análisis de Datos - Google</li>
+        </ul>
+        <a class="pdf-link" href="CV-Carlos-Guerrero.pdf" target="_blank">📄 Descargar CV en PDF</a>
+    </div>
+</main>
+
 </body>
 </html>
