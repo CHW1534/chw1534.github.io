@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function printConsoleEasterEgg() {
   const asciiBanner = `
-   ____ _   _ _77 
-  / ___| | | | | |
- | |   | |_| | | |
- | |___|  _  | | |
-  \\____|_| |_|_|_|
+  ____ _   _  __      __
+ / ___| | | | \\ \\    / /
+| |   | |_| |  \\ \\/\\/ / 
+| |___|  _  |   \\  /\\  /  
+ \\____|_| |_|    \\/  \\/   
   `;
 
   const bannerStyle = 'color: #10b981; font-family: monospace; font-weight: bold; font-size: 14px;';
