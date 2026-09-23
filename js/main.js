@@ -35,7 +35,7 @@ function initNavbar() {
     });
   }
 
-  // Smooth scroll offset adjustment for fixed navbar
+  // Smooth scroll offset adjustment
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       const targetId = link.getAttribute('href');
@@ -222,11 +222,11 @@ function printCV() {
 
 // Global helper: Copy Contact Email
 function copyEmail() {
-  const email = 'carlosguerrerodiaz15@gmail.com';
+  const email = 'Carlos.guerrero15xd@gmail.com';
   navigator.clipboard.writeText(email).then(() => {
     showToast('¡Correo copiado al portapapeles!');
   }).catch(() => {
-    showToast('Correo: carlosguerrerodiaz15@gmail.com');
+    showToast('Correo: Carlos.guerrero15xd@gmail.com');
   });
 }
 
