@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initProjectFilters();
   initGitHubApi();
-  initScrollAnimations();
 });
 
 /* ==========================================================================
@@ -19,14 +18,12 @@ function initNavbar() {
   const navLinks = document.querySelector('.nav-links');
   const links = document.querySelectorAll('.nav-links a');
 
-  // Shadow on scroll
+  // Add scrolled border state without forcing inline color overrides
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
-      navbar.style.background = 'rgba(15, 23, 42, 0.9)';
+    if (window.scrollY > 30) {
+      navbar.classList.add('scrolled');
     } else {
-      navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-      navbar.style.background = 'rgba(15, 23, 42, 0.75)';
+      navbar.classList.remove('scrolled');
     }
   });
 
@@ -50,7 +47,7 @@ function initNavbar() {
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
     let current = '';
-    const scrollPosition = window.scrollY + 200;
+    const scrollPosition = window.scrollY + 180;
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
@@ -113,7 +110,6 @@ function initProjectFilters() {
         const tags = card.getAttribute('data-tags') || '';
         if (category === 'all' || tags.includes(category)) {
           card.style.display = 'flex';
-          card.style.animation = 'fadeIn 0.4s ease forwards';
         } else {
           card.style.display = 'none';
         }
@@ -132,7 +128,7 @@ async function initGitHubApi() {
   if (!repoContainer) return;
 
   try {
-    // 1. Fetch User Data
+    // Fetch User Data
     const userRes = await fetch('https://api.github.com/users/CHW1534');
     if (userRes.ok) {
       const userData = await userRes.json();
@@ -141,12 +137,12 @@ async function initGitHubApi() {
       }
     }
 
-    // 2. Fetch User Repositories
+    // Fetch Repositories
     const reposRes = await fetch('https://api.github.com/users/CHW1534/repos?sort=updated&per_page=6');
     if (!reposRes.ok) throw new Error('Could not fetch GitHub repos');
 
     const repos = await reposRes.json();
-    repoContainer.innerHTML = ''; // Clear skeleton loader
+    repoContainer.innerHTML = '';
 
     repos.forEach(repo => {
       if (repo.name === 'CHW1534' || repo.name === 'LACPCR.github.io') return;
@@ -154,7 +150,6 @@ async function initGitHubApi() {
       const card = document.createElement('div');
       card.className = 'card github-repo-card';
 
-      const langColor = getLangColor(repo.language);
       const updatedDate = new Date(repo.updated_at).toLocaleDateString('es-ES', {
         year: 'numeric',
         month: 'short',
@@ -162,25 +157,18 @@ async function initGitHubApi() {
       });
 
       card.innerHTML = `
-        <div class="project-top">
-          <div class="project-header">
-            <i class="ri-git-repository-line project-folder-icon"></i>
-            <div class="project-links">
-              <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn-icon btn-sm" title="Ver en GitHub">
-                <i class="ri-github-line"></i>
-              </a>
-            </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <i class="ri-git-repository-line" style="color: var(--accent-primary); font-size: 1.25rem;"></i>
+            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn-icon btn-sm" title="Ver en GitHub">
+              <i class="ri-external-link-line"></i>
+            </a>
           </div>
           <h3 class="project-title">${repo.name}</h3>
-          <p class="project-desc">${repo.description || 'Proyecto disponible en el perfil de GitHub de Carlos Guerrero.'}</p>
+          <p class="project-desc">${repo.description || 'Proyecto público en el perfil de GitHub de Carlos Guerrero.'}</p>
         </div>
-        <div class="github-repo-meta">
-          ${repo.language ? `
-            <span class="lang-indicator">
-              <span class="lang-dot" style="background-color: ${langColor};"></span>
-              ${repo.language}
-            </span>
-          ` : ''}
+        <div class="github-meta">
+          ${repo.language ? `<span><i class="ri-code-s-slash-line"></i> ${repo.language}</span>` : ''}
           <span><i class="ri-star-line"></i> ${repo.stargazers_count}</span>
           <span><i class="ri-time-line"></i> ${updatedDate}</span>
         </div>
@@ -189,49 +177,8 @@ async function initGitHubApi() {
       repoContainer.appendChild(card);
     });
   } catch (error) {
-    console.warn('GitHub API rate limited or offline, showing fallback structure', error);
+    console.warn('GitHub API fallback', error);
   }
-}
-
-function getLangColor(lang) {
-  const colors = {
-    'Python': '#3572A5',
-    'TypeScript': '#3178c6',
-    'JavaScript': '#f1e05a',
-    'HTML': '#e34c26',
-    'CSS': '#563d7c',
-    'Lua': '#000080',
-    'C#': '#178600',
-    'Ruby': '#701516'
-  };
-  return colors[lang] || '#06b6d4';
-}
-
-/* ==========================================================================
-   HELPERS & ANIMATIONS
-   ========================================================================== */
-function initScrollAnimations() {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.card, .timeline-item, .section-header').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
 }
 
 // Global helper: Print CV
@@ -257,14 +204,14 @@ function showToast(message) {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: #06b6d4;
+    background: var(--accent-primary);
     color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
+    padding: 0.65rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
     font-weight: 600;
-    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
+    box-shadow: var(--shadow-lg);
     z-index: 9999;
-    animation: fadeIn 0.3s ease;
   `;
   document.body.appendChild(toast);
 
@@ -272,5 +219,5 @@ function showToast(message) {
     toast.style.opacity = '0';
     toast.style.transition = 'opacity 0.3s ease';
     setTimeout(() => toast.remove(), 300);
-  }, 3000);
+  }, 2500);
 }
