@@ -1,5 +1,5 @@
 /**
- * CARLOS GUERRERO (CHW1534) - PORTFOLIO INTERACTIVITY & FLUID ANIMATIONS
+ * CARLOS GUERRERO (CHW1534) - PORTFOLIO INTERACTIVITY & CONSOLE EASTER EGG
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,7 +8,34 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectFilters();
   initGitHubApi();
   initScrollReveal();
+  printConsoleEasterEgg();
 });
+
+/* ==========================================================================
+   CONSOLE EASTER EGG (F12 ASCII BANNER)
+   ========================================================================== */
+function printConsoleEasterEgg() {
+  const asciiBanner = `
+   ____ _   _ _77 
+  / ___| | | | | |
+ | |   | |_| | | |
+ | |___|  _  | | |
+  \\____|_| |_|_|_|
+  `;
+
+  const bannerStyle = 'color: #10b981; font-family: monospace; font-weight: bold; font-size: 14px;';
+  const nameStyle = 'color: #f9fafb; font-family: sans-serif; font-weight: bold; font-size: 15px; padding: 4px 0;';
+  const statusStyle = 'color: #10b981; font-family: sans-serif; font-weight: 600; font-size: 13px; padding-bottom: 6px;';
+  const infoStyle = 'color: #38bdf8; font-family: monospace; font-size: 12px; line-height: 1.6;';
+
+  console.log(
+    `%c${asciiBanner}\n%cCarlos Adolfo Guerrero Díaz // CHW1534\n%c🟢 DISPONIBLE PARA OPORTUNIDADES LABORALES\n\n%c🐙 GitHub:   https://github.com/CHW1534\n💼 LinkedIn: https://www.linkedin.com/in/carlosgd1/\n✉️  Email:    Carlos.guerrero15xd@gmail.com\n`,
+    bannerStyle,
+    nameStyle,
+    statusStyle,
+    infoStyle
+  );
+}
 
 /* ==========================================================================
    NAVBAR & SMOOTH SCROLL TRACKING
