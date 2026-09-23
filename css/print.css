@@ -1,0 +1,182 @@
+/* ==========================================================================
+   CARLOS GUERRERO (CHW1534) - PRINT & PDF STYLESHEET FOR RECRUITERS
+   ========================================================================== */
+
+@media print {
+  /* Hide non-CV website elements */
+  .navbar,
+  .bg-ambient,
+  .bg-grid,
+  .hero-actions,
+  .hero-avatar-wrapper,
+  .stats-bar,
+  .cv-actions-bar,
+  .projects-filter-bar,
+  .github-feed-grid,
+  .contact-methods,
+  .btn,
+  .btn-icon,
+  .mobile-menu-btn,
+  .footer,
+  #projects,
+  #github-stats,
+  #contact,
+  #hero-badges {
+    display: none !important;
+  }
+
+  /* Reset global layout for A4 print */
+  body {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .section {
+    padding: 1rem 0 !important;
+  }
+
+  /* Header Section for Print CV */
+  .hero {
+    padding-top: 1rem !important;
+    padding-bottom: 1.5rem !important;
+    border-bottom: 2px solid #e5e7eb !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .hero-grid {
+    display: block !important;
+  }
+
+  .hero-title {
+    font-size: 22pt !important;
+    color: #000000 !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 13pt !important;
+    color: #2563eb !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .hero-bio {
+    font-size: 10.5pt !important;
+    color: #374151 !important;
+    max-width: 100% !important;
+  }
+
+  .hero-socials {
+    display: flex !important;
+    gap: 1.5rem !important;
+    margin-top: 0.75rem !important;
+    padding-top: 0.5rem !important;
+    border-top: none !important;
+    font-size: 9.5pt !important;
+    color: #4b5563 !important;
+  }
+
+  /* Sections in Print View */
+  .section-header {
+    text-align: left !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 9pt !important;
+    color: #2563eb !important;
+    text-transform: uppercase !important;
+  }
+
+  .section-title {
+    font-size: 15pt !important;
+    color: #111827 !important;
+    margin-bottom: 0.5rem !important;
+    border-bottom: 1px solid #d1d5db !important;
+    padding-bottom: 0.2rem !important;
+  }
+
+  .cv-section-wrapper {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Timeline formatting for CV printout */
+  .timeline {
+    padding-left: 1rem !important;
+    gap: 1.25rem !important;
+  }
+
+  .timeline::before {
+    left: 3px !important;
+    background: #cbd5e1 !important;
+  }
+
+  .timeline-dot {
+    left: -1rem !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-width: 2px !important;
+    border-color: #2563eb !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .timeline-content {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .timeline-role {
+    font-size: 12pt !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+  }
+
+  .timeline-company {
+    color: #2563eb !important;
+    font-size: 10.5pt !important;
+  }
+
+  .timeline-date {
+    font-size: 9pt !important;
+    color: #6b7280 !important;
+    border: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .timeline-bullets {
+    font-size: 10pt !important;
+    color: #374151 !important;
+    gap: 0.25rem !important;
+  }
+
+  .timeline-bullets li::before {
+    color: #2563eb !important;
+  }
+
+  /* Skills Matrix Print formatting */
+  .skill-tag {
+    background: #f3f4f6 !important;
+    border: 1px solid #e5e7eb !important;
+    color: #1f2937 !important;
+    padding: 0.25rem 0.6rem !important;
+    font-size: 8.5pt !important;
+  }
+}

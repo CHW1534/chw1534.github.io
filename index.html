@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlos Guerrero (CHW1534) | Backend & Full-Stack Developer</title>
+  <meta name="description" content="Portafolio profesional y CV de Carlos Adolfo Guerrero Díaz. Desarrollador Backend & Full-Stack especializado en Python, FastAPI, NestJS, React, TypeScript y PostgreSQL.">
+  <meta name="keywords" content="Carlos Guerrero, CHW1534, Backend Developer, Full Stack Developer, Python, FastAPI, NestJS, React, TypeScript, PostgreSQL, Portfolio, CV">
+  <meta name="author" content="Carlos Adolfo Guerrero Díaz">
+
+  <!-- Open Graph Meta Tags for Social & LinkedIn sharing -->
+  <meta property="og:title" content="Carlos Guerrero | Backend & Full-Stack Developer">
+  <meta property="og:description" content="Portafolio profesional y CV de Carlos Guerrero. Explora mis proyectos en Python, NestJS, React y PostgreSQL.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/152942381?v=4">
+  <meta property="og:url" content="https://CHW1534.github.io">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/152942381?v=4">
+
+  <!-- RemixIcon Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+
+  <!-- Ambient Animated Background -->
+  <div class="bg-ambient"></div>
+  <div class="bg-grid"></div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar" aria-label="Navegación principal">
+    <a href="#hero" class="nav-brand">
+      <img src="https://avatars.githubusercontent.com/u/152942381?v=4" alt="Carlos Guerrero Avatar" class="avatar-mini">
+      <span>Carlos Guerrero</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">Sobre Mí</a></li>
+      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#cv">CV / Experiencia</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#github-activity">GitHub Live</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button onclick="printCV()" class="btn btn-secondary btn-sm" title="Imprimir o Guardar CV en PDF">
+        <i class="ri-printer-line"></i> <span>Guardar CV</span>
+      </button>
+      <button id="theme-toggle" class="btn-icon" aria-label="Cambiar tema de color"></button>
+      <button class="btn-icon mobile-menu-btn" aria-label="Abrir menú móvil">
+        <i class="ri-menu-line"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div id="hero-badges">
+              <span class="badge badge-status">
+                <span class="pulse-dot"></span> Disponible para oportunidades laborales
+              </span>
+            </div>
+
+            <h1 class="hero-title">
+              Hola, soy <span class="gradient-text">Carlos Guerrero</span>
+            </h1>
+
+            <div class="hero-subtitle">
+              <i class="ri-code-s-slash-line"></i> Backend & Full-Stack Developer
+            </div>
+
+            <p class="hero-bio">
+              Desarrollador de software apasionado por la ingeniería backend y la construcción de aplicaciones web de alto rendimiento. Especializado en <strong>Python (FastAPI)</strong>, <strong>NestJS</strong>, <strong>React</strong>, <strong>TypeScript</strong> y <strong>PostgreSQL</strong>. Enfocado en código limpio, arquitectura de APIs escalables y resolución algorítmica de problemas.
+            </p>
+
+            <div class="hero-actions">
+              <button onclick="printCV()" class="btn btn-primary">
+                <i class="ri-file-download-line"></i> Guardar CV (PDF)
+              </button>
+              <a href="#projects" class="btn btn-secondary">
+                <i class="ri-layout-grid-line"></i> Ver Proyectos
+              </a>
+              <a href="https://github.com/CHW1534" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                <i class="ri-github-line"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/carlosgd1/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                <i class="ri-linkedin-box-line"></i> LinkedIn
+              </a>
+            </div>
+
+            <div class="hero-socials">
+              <span class="social-link"><i class="ri-map-pin-line"></i> México / Remoto</span>
+              <a href="mailto:carlosguerrerodiaz15@gmail.com" class="social-link"><i class="ri-mail-line"></i> Contactar por Email</a>
+              <span class="social-link"><i class="ri-github-fill"></i> @CHW1534</span>
+            </div>
+          </div>
+
+          <div class="hero-avatar-wrapper">
+            <div class="avatar-card">
+              <img src="https://avatars.githubusercontent.com/u/152942381?v=4" alt="Carlos Adolfo Guerrero Díaz" class="avatar-img">
+              <div class="avatar-badge-floating">
+                <i class="ri-terminal-box-line" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-dim);">Enfoque Principal</div>
+                  <div style="color: var(--text-main);">Python & Web Dev</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUICK STATS BAR -->
+        <div class="stats-bar">
+          <div class="stat-item">
+            <span class="stat-number" id="stat-public-repos">15+</span>
+            <span class="stat-label">Repositorios Públicos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">Backend</span>
+            <span class="stat-label">Python (FastAPI) & NestJS</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">Full-Stack</span>
+            <span class="stat-label">React & TypeScript</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">SQL</span>
+            <span class="stat-label">PostgreSQL & Prisma</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ SECTION -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">// CONÓCEME</div>
+          <h2 class="section-title">Perfil & Enfoque Profesional</h2>
+          <p class="section-desc">Combinando fundamentos sólidos de programación con tecnologías web modernas para construir soluciones funcionales y escalables.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card about-card">
+            <div class="card-icon"><i class="ri-server-line"></i></div>
+            <h3>Desarrollo Backend & APIs</h3>
+            <p>Diseño e implementación de servicios backend eficientes con FastAPI y NestJS. Experiencia en modelos de datos relacionales, ORMs como Prisma y arquitecturas modulares.</p>
+          </div>
+
+          <div class="card about-card">
+            <div class="card-icon"><i class="ri-computer-line"></i></div>
+            <h3>Desarrollo Web Full-Stack</h3>
+            <p>Construcción de interfaces de usuario interactivas con React y TypeScript, integrando componentes dinámicos con consumo de APIs RESTful y gestión de estado limpio.</p>
+          </div>
+
+          <div class="card about-card">
+            <div class="card-icon"><i class="ri-mind-map"></i></div>
+            <h3>Pensamiento Algorítmico & IA</h3>
+            <p>Aplicación de lógica matemática, estructuras de datos y algoritmos como TF-IDF y similitud coseno para procesamiento y recomendación inteligente de datos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES & TECH STACK SECTION -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">// CONOCIMIENTOS TÉCNICOS</div>
+          <h2 class="section-title">Tecnologías & Herramientas</h2>
+          <p class="section-desc">Mi stack de tecnologías para la creación de proyectos de desarrollo de software.</p>
+        </div>
+
+        <div class="skills-wrapper">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <!-- Backend -->
+            <div class="card">
+              <h3 class="skills-category-title"><i class="ri-code-box-line"></i> Backend & APIs</h3>
+              <div class="skills-tags">
+                <span class="skill-tag"><i class="ri-footprint-line"></i> Python</span>
+                <span class="skill-tag"><i class="ri-flashlight-line"></i> FastAPI</span>
+                <span class="skill-tag"><i class="ri-stack-line"></i> NestJS</span>
+                <span class="skill-tag"><i class="ri-nodejs-line"></i> Node.js</span>
+                <span class="skill-tag"><i class="ri-api-line"></i> REST APIs</span>
+              </div>
+            </div>
+
+            <!-- Frontend -->
+            <div class="card">
+              <h3 class="skills-category-title"><i class="ri-layout-4-line"></i> Frontend & Web</h3>
+              <div class="skills-tags">
+                <span class="skill-tag"><i class="ri-reactjs-line"></i> React</span>
+                <span class="skill-tag"><i class="ri-code-s-line"></i> TypeScript</span>
+                <span class="skill-tag"><i class="ri-javascript-line"></i> JavaScript (ES6+)</span>
+                <span class="skill-tag"><i class="ri-html5-line"></i> HTML5 & CSS3</span>
+              </div>
+            </div>
+
+            <!-- Base de Datos & Herramientas -->
+            <div class="card">
+              <h3 class="skills-category-title"><i class="ri-database-2-line"></i> Bases de Datos & Tools</h3>
+              <div class="skills-tags">
+                <span class="skill-tag"><i class="ri-database-line"></i> PostgreSQL</span>
+                <span class="skill-tag"><i class="ri-prism-line"></i> Prisma ORM</span>
+                <span class="skill-tag"><i class="ri-terminal-window-line"></i> SQL</span>
+                <span class="skill-tag"><i class="ri-git-branch-line"></i> Git & GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRICULUM VITAE & EXPERIENCIA SECTION -->
+    <section id="cv" class="section">
+      <div class="container">
+        <div class="cv-section-wrapper">
+          <div class="cv-actions-bar">
+            <div>
+              <h2 style="font-size: 1.75rem; margin-bottom: 0.2rem;">Curriculum Vitae</h2>
+              <p style="color: var(--text-muted); font-size: 0.95rem;">Carlos Adolfo Guerrero Díaz — Desarrollador de Software</p>
+            </div>
+            <button onclick="printCV()" class="btn btn-primary">
+              <i class="ri-printer-line"></i> Imprimir / Guardar en PDF
+            </button>
+          </div>
+
+          <!-- RESUMEN EJECUTIVO -->
+          <div style="margin-bottom: 2.5rem;">
+            <h3 style="font-size: 1.2rem; color: var(--accent-cyan); margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
+              <i class="ri-user-star-line"></i> Resumen Profesional
+            </h3>
+            <p style="color: var(--text-muted); line-height: 1.7;">
+              Desarrollador enfocado en el diseño y construcción de arquitecturas backend modernas y aplicaciones web integrales. Experiencia práctica en el desarrollo de APIs robustas utilizando <strong>Python (FastAPI)</strong> y <strong>NestJS</strong>, gestión de bases de datos relacionales con <strong>PostgreSQL / Prisma</strong> y creación de interfaces dinámicas con <strong>React & TypeScript</strong>. Apasionado por el aprendizaje continuo, las buenas prácticas de código y la resolución estructurada de problemas informáticos.
+            </p>
+          </div>
+
+          <!-- PROYECTOS Y EXPERIENCIA APLICADA -->
+          <div style="margin-bottom: 2.5rem;">
+            <h3 style="font-size: 1.2rem; color: var(--accent-cyan); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
+              <i class="ri-briefcase-line"></i> Experiencia Aplicada & Proyectos Destacados
+            </h3>
+
+            <div class="timeline">
+              <!-- Item 1: Plataforma de Inventarios -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <div>
+                      <h4 class="timeline-role">Plataforma de Gestión de Inventarios</h4>
+                      <div class="timeline-company">NestJS + Prisma + PostgreSQL + React</div>
+                    </div>
+                    <span class="timeline-date">2024 - Presente</span>
+                  </div>
+                  <ul class="timeline-bullets">
+                    <li>Diseño de arquitectura full-stack para el control de stock, gestión de catálogo y roles de usuario.</li>
+                    <li>Implementación de servidor de backend con NestJS utilizando arquitectura modular y validación de DTOs.</li>
+                    <li>Modelado de base de datos relacional PostgreSQL e integración mediante Prisma ORM para consultas eficientes y migraciones seguras.</li>
+                    <li>Construcción de interfaz de usuario receptiva e intuitiva utilizando React y TypeScript.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 2: Sistema de Recomendación TF-IDF -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <div>
+                      <h4 class="timeline-role">Sistema de Recomendación Basado en Contenido</h4>
+                      <div class="timeline-company">Python + TF-IDF + Similitud Coseno</div>
+                    </div>
+                    <span class="timeline-date">2023 - 2024</span>
+                  </div>
+                  <ul class="timeline-bullets">
+                    <li>Desarrollo de algoritmo en Python para procesamiento de texto y extracción de características vectoriales mediante TF-IDF.</li>
+                    <li>Cálculo de matrices de Similitud Coseno para generar sugerencias precisas basadas en contenido.</li>
+                    <li>Optimización de manejo de datos y evaluación de rendimiento del modelo.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 3: EvolutionAPI CUSTOM -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <div>
+                      <h4 class="timeline-role">Personalización e Integración de EvolutionAPI</h4>
+                      <div class="timeline-company">TypeScript + Node.js</div>
+                    </div>
+                    <span class="timeline-date">2024</span>
+                  </div>
+                  <ul class="timeline-bullets">
+                    <li>Adaptación y extensión de cliente API para automatización de servicios y mensajería en Node.js.</li>
+                    <li>Manejo de eventos en tiempo real, webhooks y estructuración de respuestas JSON personalizadas.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 4: Pensamiento Computacional Rubik -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <div>
+                      <h4 class="timeline-role">Modelado Algorítmico - Cubo de Rubik</h4>
+                      <div class="timeline-company">Python (Pensamiento Computacional)</div>
+                    </div>
+                    <span class="timeline-date">2024</span>
+                  </div>
+                  <ul class="timeline-bullets">
+                    <li>Implementación de estructuras de datos orientadas a la representación matricial y lógica de estados del Cubo de Rubik.</li>
+                    <li>Aplicación de abstracción de problemas y diseño de algoritmos paso a paso en Python.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORMACIÓN & COMPETENCIAS -->
+          <div>
+            <h3 style="font-size: 1.2rem; color: var(--accent-cyan); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
+              <i class="ri-graduation-cap-line"></i> Formación & Competencias Clave
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+              <div>
+                <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 0.5rem;">Formación Académica & Autodidacta</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                  Estudios focalizados en Sistemas Distribuidos, Pensamiento Computacional y Desarrollo Web Full-Stack. Aprendizaje continuo de frameworks modernos y estándares de la industria.
+                </p>
+              </div>
+              <div>
+                <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 0.5rem;">Idiomas & Idioma Técnico</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                  <strong>Español:</strong> Nativo.<br>
+                  <strong>Inglés:</strong> Lectura técnica de documentación y desarrollo de software.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS SHOWCASE SECTION -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">// MI PORTAFOLIO</div>
+          <h2 class="section-title">Proyectos Destacados</h2>
+          <p class="section-desc">Una selección de repositorios y proyectos que reflejan mi experiencia técnica.</p>
+        </div>
+
+        <!-- Filtros de Proyectos -->
+        <div class="projects-filter-bar">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="backend">Python & Backend</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack (NestJS / React)</button>
+          <button class="filter-btn" data-filter="algo">Algoritmos & IA</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Proyecto 1: Plataforma de Inventarios -->
+          <div class="card project-card project-card-item" data-tags="fullstack backend">
+            <div class="project-top">
+              <div class="project-header">
+                <i class="ri-store-2-line project-folder-icon"></i>
+                <div class="project-links">
+                  <a href="https://github.com/CHW1534/Plataforma-de-Inventarios" target="_blank" rel="noopener noreferrer" class="btn-icon btn-sm" title="Ver en GitHub">
+                    <i class="ri-github-line"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Plataforma de Inventarios</h3>
+              <p class="project-desc">Proyecto completo de gestión de inventario y catálogo de productos desarrollado con arquitectura NestJS, ORM Prisma, base de datos PostgreSQL y frontend en React.</p>
+            </div>
+            <div class="project-tech-stack">
+              <span class="badge badge-tech">NestJS</span>
+              <span class="badge badge-tech">Prisma</span>
+              <span class="badge badge-tech">PostgreSQL</span>
+              <span class="badge badge-tech">React</span>
+            </div>
+          </div>
+
+          <!-- Proyecto 2: Sistema de Recomendación TF-IDF -->
+          <div class="card project-card project-card-item" data-tags="backend algo">
+            <div class="project-top">
+              <div class="project-header">
+                <i class="ri-cpu-line project-folder-icon"></i>
+                <div class="project-links">
+                  <a href="https://github.com/CHW1534/Sistema-de-Recomendaci-n-basado-en-TF-IDF-y-Similitud-Coseno" target="_blank" rel="noopener noreferrer" class="btn-icon btn-sm" title="Ver en GitHub">
+                    <i class="ri-github-line"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Sistema de Recomendación TF-IDF</h3>
+              <p class="project-desc">Motor de sugerencia de contenido implementado en Python calculando métricas de TF-IDF y matrices de Similitud Coseno para filtrado basado en características.</p>
+            </div>
+            <div class="project-tech-stack">
+              <span class="badge badge-tech">Python</span>
+              <span class="badge badge-tech">Scikit-Learn</span>
+              <span class="badge badge-tech">NLP</span>
+              <span class="badge badge-tech">Pandas</span>
+            </div>
+          </div>
+
+          <!-- Proyecto 3: EvolutionAPI CUSTOM -->
+          <div class="card project-card project-card-item" data-tags="fullstack backend">
+            <div class="project-top">
+              <div class="project-header">
+                <i class="ri-settings-5-line project-folder-icon"></i>
+                <div class="project-links">
+                  <a href="https://github.com/CHW1534/EvolutionAPI-CUSTOM" target="_blank" rel="noopener noreferrer" class="btn-icon btn-sm" title="Ver en GitHub">
+                    <i class="ri-github-line"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">EvolutionAPI-CUSTOM</h3>
+              <p class="project-desc">Personalización y extensiones avanzadas de cliente API de automatización escritas en TypeScript para integración fluida de servicios de comunicación.</p>
+            </div>
+            <div class="project-tech-stack">
+              <span class="badge badge-tech">TypeScript</span>
+              <span class="badge badge-tech">Node.js</span>
+              <span class="badge badge-tech">REST API</span>
+            </div>
+          </div>
+
+          <!-- Proyecto 4: PTC-CatalogoZ -->
+          <div class="card project-card project-card-item" data-tags="fullstack">
+            <div class="project-top">
+              <div class="project-header">
+                <i class="ri-shopping-bag-line project-folder-icon"></i>
+                <div class="project-links">
+                  <a href="https://github.com/CHW1534/PTC-CatalogoZ" target="_blank" rel="noopener noreferrer" class="btn-icon btn-sm" title="Ver en GitHub">
+                    <i class="ri-github-line"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">PTC-CatalogoZ</h3>
+              <p class="project-desc">Aplicación web ligera para la administración básica de un catálogo interactivo de productos con filtrado dinámico y diseño responsivo.</p>
+            </div>
+            <div class="project-tech-stack">
+              <span class="badge badge-tech">TypeScript</span>
+              <span class="badge badge-tech">React</span>
+              <span class="badge badge-tech">Web UI</span>
+            </div>
+          </div>
+
+          <!-- Proyecto 5: Cubo Rubik Algoritmo -->
+          <div class="card project-card project-card-item" data-tags="backend algo">
+            <div class="project-top">
+              <div class="project-header">
+                <i class="ri-cube-line project-folder-icon"></i>
+                <div class="project-links">
+                  <a href="https://github.com/CHW1534/cubo" target="_blank" rel="noopener noreferrer" class="btn-icon btn-sm" title="Ver en GitHub">
+                    <i class="ri-github-line"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Pensamiento Computacional: Rubik</h3>
+              <p class="project-desc">Desarrollo algorítmico en Python aplicando lógica de pensamiento computacional para el modelado de estados y solución estructurada del Cubo de Rubik.</p>
+            </div>
+            <div class="project-tech-stack">
+              <span class="badge badge-tech">Python</span>
+              <span class="badge badge-tech">Algoritmos</span>
+              <span class="badge badge-tech">Lógica</span>
+            </div>
+          </div>
+
+          <!-- Proyecto 6: Autenticador OTP -->
+          <div class="card project-card project-card-item" data-tags="backend">
+            <div class="project-top">
+              <div class="project-header">
+                <i class="ri-shield-keyhole-line project-folder-icon"></i>
+                <div class="project-links">
+                  <a href="https://github.com/CHW1534/Autenticador_OTP" target="_blank" rel="noopener noreferrer" class="btn-icon btn-sm" title="Ver en GitHub">
+                    <i class="ri-github-line"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Autenticador OTP</h3>
+              <p class="project-desc">Módulo de seguridad en Python para generación y verificación de contraseñas temporales de un solo uso (One-Time Password).</p>
+            </div>
+            <div class="project-tech-stack">
+              <span class="badge badge-tech">Python</span>
+              <span class="badge badge-tech">Seguridad</span>
+              <span class="badge badge-tech">Auth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GITHUB LIVE ACTIVITY SECTION -->
+    <section id="github-activity" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">// ACTIVIDAD EN TIEMPO REAL</div>
+          <h2 class="section-title">Repositorios Públicos de GitHub</h2>
+          <p class="section-desc">Información actualizada en vivo a través de la API oficial de GitHub.</p>
+        </div>
+
+        <div id="github-repos-container" class="github-feed-grid">
+          <!-- Skeleton Loader -->
+          <div class="card" style="padding: 2rem; text-align: center; color: var(--text-dim);">
+            <i class="ri-loader-4-line" style="font-size: 2rem; animation: spin 1s infinite linear; display: inline-block;"></i>
+            <p style="margin-top: 0.5rem;">Cargando repositorios desde GitHub...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO SECTION -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="section-subtitle">// ¿TRABAJAMOS JUNTOS?</div>
+          <h2 class="section-title" style="margin-bottom: 1rem;">Ponte en Contacto</h2>
+          <p class="section-desc" style="max-width: 550px; margin: 0 auto 2rem auto;">
+            Estoy disponible para vacantes de desarrollo <strong>Backend, Full-Stack o Frontend</strong> (remoto o híbrido). ¡Conectemos!
+          </p>
+
+          <div class="contact-methods">
+            <a href="https://www.linkedin.com/in/carlosgd1/" target="_blank" rel="noopener noreferrer" class="contact-card-btn">
+              <i class="ri-linkedin-box-fill"></i> LinkedIn: /in/carlosgd1
+            </a>
+            <a href="https://github.com/CHW1534" target="_blank" rel="noopener noreferrer" class="contact-card-btn">
+              <i class="ri-github-fill"></i> GitHub: @CHW1534
+            </a>
+            <button onclick="copyEmail()" class="contact-card-btn" style="cursor: pointer;">
+              <i class="ri-mail-send-fill"></i> Copiar Correo Electrónico
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        Diseñado & Desarrollado por <strong>Carlos Adolfo Guerrero Díaz</strong> © 2026
+      </div>
+      <div style="font-size: 0.8rem; color: var(--text-dim);">
+        Alojado en <a href="https://github.com/CHW1534/chw1534.github.io" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">GitHub Pages</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>
