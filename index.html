@@ -28,21 +28,22 @@
   <!-- Subtle Grid Overlay -->
   <div class="bg-grid"></div>
 
-  <!-- NAVIGATION BAR -->
+  <!-- NAVEGACIÓN PRINCIPAL -->
   <nav class="navbar" aria-label="Navegación principal">
     <div class="container nav-container">
-      <a href="#hero" class="nav-brand">
+      <a href="#yo" class="nav-brand">
         <img src="https://avatars.githubusercontent.com/u/152942381?v=4" alt="Carlos Guerrero Avatar">
         <span>Carlos Guerrero</span>
       </a>
 
       <ul class="nav-links">
-        <li><a href="#about">Sobre Mí</a></li>
-        <li><a href="#skills">Habilidades</a></li>
-        <li><a href="#cv">CV / Experiencia</a></li>
-        <li><a href="#projects">Proyectos</a></li>
-        <li><a href="#github-activity">GitHub Live</a></li>
-        <li><a href="#contact">Contacto</a></li>
+        <li><a href="#yo" class="active">Yo</a></li>
+        <li><a href="#sobre-mi">Sobre Mí</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#experiencia">CV & Experiencia</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#github-en-vivo">GitHub en Vivo</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -58,11 +59,11 @@
   </nav>
 
   <main>
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero">
+    <!-- SECCIÓN #YO (PRESENTACIÓN PRINCIPAL) -->
+    <section id="yo" class="hero">
       <div class="container">
         <div class="hero-grid">
-          <div class="hero-content">
+          <div class="hero-content fade-in-up">
             <div>
               <span class="badge badge-status">
                 <span class="pulse-dot"></span> Disponible para oportunidades laborales
@@ -85,7 +86,7 @@
               <button onclick="printCV()" class="btn btn-primary">
                 <i class="ri-file-download-line"></i> Guardar CV (PDF)
               </button>
-              <a href="#projects" class="btn btn-secondary">
+              <a href="#proyectos" class="btn btn-secondary">
                 <i class="ri-layout-grid-line"></i> Ver Proyectos
               </a>
               <a href="https://github.com/CHW1534" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
@@ -103,7 +104,7 @@
             </div>
           </div>
 
-          <div class="hero-avatar-wrapper">
+          <div class="hero-avatar-wrapper fade-in-up delay-1">
             <div class="avatar-card">
               <img src="https://avatars.githubusercontent.com/u/152942381?v=4" alt="Carlos Adolfo Guerrero Díaz">
               <div class="avatar-card-info">
@@ -114,8 +115,8 @@
           </div>
         </div>
 
-        <!-- STATS GRID -->
-        <div class="stats-grid">
+        <!-- RECUADROS DE ESTADÍSTICAS -->
+        <div class="stats-grid fade-in-up delay-2">
           <div class="stat-card">
             <span class="stat-value" id="stat-public-repos">15+</span>
             <span class="stat-label">Repositorios Públicos</span>
@@ -136,29 +137,29 @@
       </div>
     </section>
 
-    <!-- SOBRE MÍ SECTION -->
-    <section id="about" class="section">
+    <!-- SECCIÓN #SOBRE-MI -->
+    <section id="sobre-mi" class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <div class="subheading">// CONÓCEME</div>
           <h2 class="section-title">Perfil & Áreas de Trabajo</h2>
           <p class="section-desc">Combinando sólidos fundamentos en computación con tecnologías web modernas para entregar software confiable.</p>
         </div>
 
         <div class="about-grid">
-          <div class="card about-card">
+          <div class="card about-card reveal-on-scroll">
             <div class="card-icon"><i class="ri-server-line"></i></div>
             <h3>Ingeniería Backend & APIs</h3>
             <p>Construcción de servicios backend escalables con FastAPI y NestJS. Diseño de modelos relacionales, consultas SQL optimizadas y arquitectura de endpoints REST.</p>
           </div>
 
-          <div class="card about-card">
+          <div class="card about-card reveal-on-scroll">
             <div class="card-icon"><i class="ri-layout-3-line"></i></div>
             <h3>Desarrollo Web Full-Stack</h3>
             <p>Creación de aplicaciones web dinámicas con React y TypeScript, integrando interfaces responsivas con servicios backend estructurados.</p>
           </div>
 
-          <div class="card about-card">
+          <div class="card about-card reveal-on-scroll">
             <div class="card-icon"><i class="ri-cpu-line"></i></div>
             <h3>Algoritmos & Datos</h3>
             <p>Lógica aplicada para la estructuración de datos y modelos de procesamiento, como TF-IDF y similitud coseno para recomendaciones inteligentes.</p>
@@ -167,17 +168,17 @@
       </div>
     </section>
 
-    <!-- HABILIDADES SECTION -->
-    <section id="skills" class="section">
+    <!-- SECCIÓN #HABILIDADES -->
+    <section id="habilidades" class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <div class="subheading">// CONOCIMIENTOS TÉCNICOS</div>
           <h2 class="section-title">Tecnologías & Dominio</h2>
           <p class="section-desc">Herramientas y lenguajes que utilizo activamente en mis proyectos.</p>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-          <div class="card">
+          <div class="card reveal-on-scroll">
             <h3 style="font-size: 1.1rem; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
               <i class="ri-code-s-slash-line" style="color: var(--accent-emerald);"></i> Backend
             </h3>
@@ -190,7 +191,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card reveal-on-scroll">
             <h3 style="font-size: 1.1rem; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
               <i class="ri-window-line" style="color: var(--accent-emerald);"></i> Frontend
             </h3>
@@ -202,7 +203,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card reveal-on-scroll">
             <h3 style="font-size: 1.1rem; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
               <i class="ri-database-line" style="color: var(--accent-emerald);"></i> Bases de Datos & Tools
             </h3>
@@ -217,10 +218,10 @@
       </div>
     </section>
 
-    <!-- CV & EXPERIENCIA SECTION -->
-    <section id="cv" class="section">
+    <!-- SECCIÓN #EXPERIENCIA (CV) -->
+    <section id="experiencia" class="section">
       <div class="container">
-        <div class="cv-container">
+        <div class="cv-container reveal-on-scroll">
           <div class="cv-header">
             <div>
               <h2 style="font-size: 1.65rem; margin-bottom: 0.25rem;">Curriculum Vitae</h2>
@@ -314,16 +315,16 @@
       </div>
     </section>
 
-    <!-- PROYECTOS SHOWCASE SECTION -->
-    <section id="projects" class="section">
+    <!-- SECCIÓN #PROYECTOS -->
+    <section id="proyectos" class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <div class="subheading">// MI PORTAFOLIO</div>
           <h2 class="section-title">Proyectos Destacados</h2>
           <p class="section-desc">Selección de proyectos clave desarrollados y mantenidos en mi cuenta de GitHub.</p>
         </div>
 
-        <div class="projects-filter-bar">
+        <div class="projects-filter-bar reveal-on-scroll">
           <button class="filter-btn active" data-filter="all">Todos</button>
           <button class="filter-btn" data-filter="backend">Python & Backend</button>
           <button class="filter-btn" data-filter="fullstack">Full-Stack (NestJS / React)</button>
@@ -332,7 +333,7 @@
 
         <div class="projects-grid">
           <!-- Item 1 -->
-          <div class="card project-card project-card-item" data-tags="fullstack backend">
+          <div class="card project-card project-card-item reveal-on-scroll" data-tags="fullstack backend">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <i class="ri-store-2-line" style="color: var(--accent-emerald); font-size: 1.4rem;"></i>
@@ -352,7 +353,7 @@
           </div>
 
           <!-- Item 2 -->
-          <div class="card project-card project-card-item" data-tags="backend algo">
+          <div class="card project-card project-card-item reveal-on-scroll" data-tags="backend algo">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <i class="ri-cpu-line" style="color: var(--accent-emerald); font-size: 1.4rem;"></i>
@@ -371,7 +372,7 @@
           </div>
 
           <!-- Item 3 -->
-          <div class="card project-card project-card-item" data-tags="fullstack backend">
+          <div class="card project-card project-card-item reveal-on-scroll" data-tags="fullstack backend">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <i class="ri-settings-5-line" style="color: var(--accent-emerald); font-size: 1.4rem;"></i>
@@ -389,7 +390,7 @@
           </div>
 
           <!-- Item 4 -->
-          <div class="card project-card project-card-item" data-tags="fullstack">
+          <div class="card project-card project-card-item reveal-on-scroll" data-tags="fullstack">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <i class="ri-shopping-bag-line" style="color: var(--accent-emerald); font-size: 1.4rem;"></i>
@@ -407,7 +408,7 @@
           </div>
 
           <!-- Item 5 -->
-          <div class="card project-card project-card-item" data-tags="backend algo">
+          <div class="card project-card project-card-item reveal-on-scroll" data-tags="backend algo">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <i class="ri-cube-line" style="color: var(--accent-emerald); font-size: 1.4rem;"></i>
@@ -425,7 +426,7 @@
           </div>
 
           <!-- Item 6 -->
-          <div class="card project-card project-card-item" data-tags="backend">
+          <div class="card project-card project-card-item reveal-on-scroll" data-tags="backend">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <i class="ri-shield-keyhole-line" style="color: var(--accent-emerald); font-size: 1.4rem;"></i>
@@ -445,10 +446,10 @@
       </div>
     </section>
 
-    <!-- GITHUB LIVE SECTION -->
-    <section id="github-activity" class="section">
+    <!-- SECCIÓN #GITHUB-EN-VIVO -->
+    <section id="github-en-vivo" class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <div class="subheading">// ACTIVIDAD EN GITHUB</div>
           <h2 class="section-title">Repositorios Públicos Recientes</h2>
           <p class="section-desc">Datos actualizados en tiempo real mediante la API pública de GitHub.</p>
@@ -463,10 +464,10 @@
       </div>
     </section>
 
-    <!-- CONTACTO SECTION -->
-    <section id="contact" class="section">
+    <!-- SECCIÓN #CONTACTO -->
+    <section id="contacto" class="section">
       <div class="container">
-        <div class="contact-box">
+        <div class="contact-box reveal-on-scroll">
           <div class="subheading">// CONTACTO</div>
           <h2 class="section-title" style="margin-bottom: 0.75rem;">¿Hablamos de tu Próximo Proyecto?</h2>
           <p class="section-desc" style="margin: 0 auto;">
@@ -489,7 +490,7 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- PIE DE PÁGINA -->
   <footer class="footer">
     <div class="container">
       <div>Carlos Adolfo Guerrero Díaz © 2026 — Publicado en <a href="https://github.com/CHW1534/chw1534.github.io" target="_blank" style="color: var(--text-primary); font-weight: 500;">GitHub Pages</a></div>

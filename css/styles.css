@@ -1,6 +1,5 @@
 /* ==========================================================================
-   CARLOS GUERRERO (CHW1534) - AUTHENTIC CUSTOM DESIGN SYSTEM
-   Midnight Obsidian & Emerald Theme (Sleek, Modern, Personal Developer Style)
+   CARLOS GUERRERO (CHW1534) - AUTHENTIC CUSTOM DESIGN SYSTEM & ANIMATIONS
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
@@ -10,7 +9,7 @@
   --bg-body: #0a0e17;
   --bg-card: rgba(17, 24, 39, 0.75);
   --bg-card-hover: rgba(26, 36, 56, 0.85);
-  --bg-nav: rgba(10, 14, 23, 0.82);
+  --bg-nav: rgba(10, 14, 23, 0.85);
   --bg-pill: rgba(255, 255, 255, 0.04);
   
   --text-primary: #f9fafb;
@@ -20,7 +19,7 @@
   --border-color: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(16, 185, 129, 0.35);
   
-  /* Custom Authentic Accents (Emerald + Deep Indigo) */
+  /* Custom Accents (Emerald + Deep Indigo) */
   --accent-emerald: #10b981;
   --accent-emerald-soft: rgba(16, 185, 129, 0.12);
   --accent-indigo: #6366f1;
@@ -39,11 +38,11 @@
   --radius-lg: 18px;
   --radius-full: 9999px;
 
-  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light Mode Palette - Crisp Pearl & Rich Slate */
+/* Light Mode Palette */
 [data-theme="light"] {
   --bg-body: #f8fafc;
   --bg-card: #ffffff;
@@ -68,7 +67,7 @@
   --shadow-glow: 0 0 15px rgba(5, 150, 105, 0.12);
 }
 
-/* Reset */
+/* Base Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -90,7 +89,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Background Subtle Grid Pattern */
+/* Subtle Grid Background Pattern */
 .bg-grid {
   position: fixed;
   top: 0;
@@ -172,7 +171,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR
+   NAVIGATION BAR & FLUID ANIMATIONS
    ========================================================================== */
 .navbar {
   position: fixed;
@@ -185,7 +184,7 @@ h1, h2, h3, h4 {
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
-  transition: var(--transition-normal);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
 
 .nav-container {
@@ -204,6 +203,11 @@ h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.1rem;
+  transition: transform var(--transition-fast);
+}
+
+.nav-brand:hover {
+  transform: scale(1.02);
 }
 
 .nav-brand img {
@@ -211,6 +215,7 @@ h1, h2, h3, h4 {
   height: 34px;
   border-radius: 50%;
   border: 2px solid var(--accent-emerald);
+  transition: border-color var(--transition-fast);
 }
 
 .nav-links {
@@ -225,24 +230,34 @@ h1, h2, h3, h4 {
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast);
   position: relative;
+  padding: 0.25rem 0;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent-emerald);
-}
-
-.nav-links a.active::after {
+.nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -6px;
+  bottom: 0;
   left: 0;
-  width: 100%;
+  width: 0%;
   height: 2px;
   background: var(--accent-emerald);
   border-radius: 2px;
+  transition: width var(--transition-normal);
+}
+
+.nav-links a:hover {
+  color: var(--accent-emerald);
+}
+
+.nav-links a.active {
+  color: var(--accent-emerald);
+  font-weight: 600;
+}
+
+.nav-links a.active::after {
+  width: 100%;
 }
 
 .nav-actions {
@@ -318,6 +333,7 @@ h1, h2, h3, h4 {
   color: var(--accent-emerald);
   border-color: var(--accent-emerald);
   background-color: var(--bg-card-hover);
+  transform: scale(1.05);
 }
 
 .mobile-menu-btn {
@@ -325,7 +341,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   HERO SECTION
+   HERO / YO SECTION
    ========================================================================== */
 .hero {
   padding-top: 8.5rem;
@@ -398,7 +414,7 @@ h1, h2, h3, h4 {
   color: var(--accent-emerald);
 }
 
-/* Avatar Card */
+/* Avatar Card with Float Effect */
 .hero-avatar-wrapper {
   display: flex;
   justify-content: center;
@@ -414,11 +430,18 @@ h1, h2, h3, h4 {
   padding: 1.25rem;
   box-shadow: var(--shadow-card);
   transition: var(--transition-normal);
+  animation: floatCard 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
 }
 
 .avatar-card:hover {
   border-color: var(--border-hover);
   box-shadow: var(--shadow-glow);
+  transform: translateY(-5px);
 }
 
 .avatar-card img {
@@ -450,12 +473,13 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  transition: var(--transition-fast);
+  transition: var(--transition-normal);
 }
 
 .stat-card:hover {
   border-color: var(--border-hover);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
 }
 
 .stat-value {
@@ -471,7 +495,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   SECTIONS GENERAL
+   SECTIONS & CARDS
    ========================================================================== */
 .section {
   padding: 5rem 0;
@@ -506,7 +530,7 @@ h1, h2, h3, h4 {
 .card:hover {
   background-color: var(--bg-card-hover);
   border-color: var(--border-hover);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-card);
 }
 
@@ -538,6 +562,11 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   font-size: 1.35rem;
+  transition: transform var(--transition-fast);
+}
+
+.card:hover .card-icon {
+  transform: scale(1.1);
 }
 
 /* Skill Tags */
@@ -566,6 +595,7 @@ h1, h2, h3, h4 {
   border-color: var(--accent-emerald);
   color: var(--accent-emerald);
   background-color: var(--accent-emerald-soft);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -788,6 +818,36 @@ h1, h2, h3, h4 {
   text-align: center;
   font-size: 0.875rem;
   color: var(--text-muted);
+}
+
+/* ==========================================================================
+   FLUID ANIMATIONS & SCROLL REVEAL
+   ========================================================================== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Mobile Responsiveness */

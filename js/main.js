@@ -1,5 +1,5 @@
 /**
- * CARLOS GUERRERO (CHW1534) - PORTFOLIO INTERACTIVITY & GITHUB INTEGRATION
+ * CARLOS GUERRERO (CHW1534) - PORTFOLIO INTERACTIVITY & FLUID ANIMATIONS
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,25 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initProjectFilters();
   initGitHubApi();
+  initScrollReveal();
 });
 
 /* ==========================================================================
-   NAVBAR & MOBILE MENU
+   NAVBAR & SMOOTH SCROLL TRACKING
    ========================================================================== */
 function initNavbar() {
   const navbar = document.querySelector('.navbar');
   const mobileBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
   const links = document.querySelectorAll('.nav-links a');
-
-  // Add scrolled border state without forcing inline color overrides
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
 
   // Mobile menu toggle
   if (mobileBtn && navLinks) {
@@ -38,15 +30,35 @@ function initNavbar() {
     links.forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('mobile-open');
-        mobileBtn.innerHTML = '<i class="ri-menu-line"></i>';
+        if (mobileBtn) mobileBtn.innerHTML = '<i class="ri-menu-line"></i>';
       });
     });
   }
 
-  // Active section observer
+  // Smooth scroll offset adjustment for fixed navbar
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+      if (targetId.startsWith('#')) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          const navHeight = 70;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+
+  // Active section observer (Spanish Section IDs)
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
-    let current = '';
+    let current = 'yo';
     const scrollPosition = window.scrollY + 180;
 
     sections.forEach(section => {
@@ -93,7 +105,7 @@ function updateThemeIcon(btn, theme) {
 }
 
 /* ==========================================================================
-   PROJECT FILTERS
+   PROJECT FILTERS WITH FADE ANIMATION
    ========================================================================== */
 function initProjectFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -110,6 +122,7 @@ function initProjectFilters() {
         const tags = card.getAttribute('data-tags') || '';
         if (category === 'all' || tags.includes(category)) {
           card.style.display = 'flex';
+          card.classList.add('is-visible');
         } else {
           card.style.display = 'none';
         }
@@ -128,7 +141,6 @@ async function initGitHubApi() {
   if (!repoContainer) return;
 
   try {
-    // Fetch User Data
     const userRes = await fetch('https://api.github.com/users/CHW1534');
     if (userRes.ok) {
       const userData = await userRes.json();
@@ -137,7 +149,6 @@ async function initGitHubApi() {
       }
     }
 
-    // Fetch Repositories
     const reposRes = await fetch('https://api.github.com/users/CHW1534/repos?sort=updated&per_page=6');
     if (!reposRes.ok) throw new Error('Could not fetch GitHub repos');
 
@@ -148,7 +159,7 @@ async function initGitHubApi() {
       if (repo.name === 'CHW1534' || repo.name === 'LACPCR.github.io') return;
 
       const card = document.createElement('div');
-      card.className = 'card github-repo-card';
+      card.className = 'card github-repo-card reveal-on-scroll is-visible';
 
       const updatedDate = new Date(repo.updated_at).toLocaleDateString('es-ES', {
         year: 'numeric',
@@ -159,13 +170,13 @@ async function initGitHubApi() {
       card.innerHTML = `
         <div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-            <i class="ri-git-repository-line" style="color: var(--accent-primary); font-size: 1.25rem;"></i>
+            <i class="ri-git-repository-line" style="color: var(--accent-emerald); font-size: 1.3rem;"></i>
             <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn-icon btn-sm" title="Ver en GitHub">
               <i class="ri-external-link-line"></i>
             </a>
           </div>
           <h3 class="project-title">${repo.name}</h3>
-          <p class="project-desc">${repo.description || 'Proyecto público en el perfil de GitHub de Carlos Guerrero.'}</p>
+          <p class="project-desc">${repo.description || 'Proyecto disponible en el perfil de GitHub de Carlos Guerrero.'}</p>
         </div>
         <div class="github-meta">
           ${repo.language ? `<span><i class="ri-code-s-slash-line"></i> ${repo.language}</span>` : ''}
@@ -179,6 +190,29 @@ async function initGitHubApi() {
   } catch (error) {
     console.warn('GitHub API fallback', error);
   }
+}
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================================================== */
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+  const observerOptions = {
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  revealElements.forEach(el => observer.observe(el));
 }
 
 // Global helper: Print CV
@@ -204,14 +238,15 @@ function showToast(message) {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: var(--accent-primary);
+    background: var(--accent-emerald);
     color: #fff;
     padding: 0.65rem 1.25rem;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 0.875rem;
     font-weight: 600;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-card);
     z-index: 9999;
+    animation: fadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   `;
   document.body.appendChild(toast);
 
